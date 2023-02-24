@@ -41,22 +41,6 @@ import java.util.BitSet;
  */
 public class BinaryConverter {
 
-    public static String toBinaryFrom36(String base36String) {
-        return new BigInteger(base36String, 36).toString(2);
-    }
-
-    public static String toBinary(Long base10long) {
-        return Long.toBinaryString(base10long);
-    }
-
-    public static String toBinary(int base10int) {
-        return Integer.toBinaryString(base10int);
-    }
-
-    public static String toBinary(BigInteger base10bigInt) {
-        return base10bigInt.toString(2);
-    }
-
     public static String toBinary(BitSet bitSet) {
         StringBuilder binaryString = new StringBuilder();
         int[] setBits = getSetBits(bitSet);
@@ -79,21 +63,12 @@ public class BinaryConverter {
         return Long.toString(base10long, 36);
     }
 
-    public static String toBase36(int base10int) {
-        // return toBase36(new Long(base10int));
-        return toBase36(Long.valueOf(base10int));
-    }
-
     public static String toBase36(String binaryString) {
         return new BigInteger(binaryString, 2).toString(36);
     }
 
     public static String toBase36(BitSet bitSet) {
         return toBase36(toBinary(bitSet));
-    }
-
-    public static String toBase36(BigInteger base10bigInt) {
-        return base10bigInt.toString(36);
     }
 
     public static BitSet toBitSet(BigInteger base10bigInt) {
@@ -103,10 +78,6 @@ public class BinaryConverter {
             bitSet.set(i, base10bigInt.testBit(i));
         }
         return bitSet;
-    }
-
-    public static BitSet toBitSet(String binaryString) {
-        return toBitSet(new BigInteger(binaryString, 2));
     }
 
     public static BitSet toBitSetFromBase36(String base36String) {

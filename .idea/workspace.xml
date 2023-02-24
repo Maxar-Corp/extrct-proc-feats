@@ -5,35 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="beb9750c-da17-4abf-9662-b041b3dfdba5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ExtractProcessingFeaturesFromFilename.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BinaryConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BrightnessFeature.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CsvMappingReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Feature.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FeatureGroups.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FeatureMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FeatureMapFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FileNamer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FileNamerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GsdFeature.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ImageFileRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ImageFileRefType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ParseFilename.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProcessingParams.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SharpenFeature.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StaticSettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VersionOneFeatureMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VersionOneFileNamer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/apache/commons/io/FilenameUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BinaryConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinaryConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Feature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Feature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FeatureMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FeatureMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageFileRef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageFileRef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParseFilename.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParseFilename.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProcessingParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessingParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StaticSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StaticSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestRef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VersionOneFeatureMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VersionOneFeatureMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VersionOneFileNamer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VersionOneFileNamer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +100,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ImageFileRef.java</url>
-          <line>264</line>
+          <line>146</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

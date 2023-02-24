@@ -45,13 +45,6 @@ public class ParseFilename {
      */
     public static final int ID_LENGTH = StaticSettings.DC_BIT_ID.length();
 
-    /**
-     * Prevents the creation of {@link ParseFilename}.
-     */
-    private ParseFilename() {
-        // Prevents the creation of the class.
-    }
-
     public static ImageFileRef parse(String filename) throws Exception {
         return FileNamerFactory.getByFilename(filename).parseFilename(filename);
     }

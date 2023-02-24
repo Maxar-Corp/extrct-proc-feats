@@ -24,7 +24,6 @@
  * must also reproduce the markings.
  */
 
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -64,18 +63,6 @@ public class ProcessingParams {
     public ProcessingParams(String version) throws Exception {
         setVersion(version);
         bitSet = new BitSet();
-    }
-
-    /**
-     * Creates a new instance of {@link ProcessingParams}.
-     *
-     * @param initialBits the initial bits to set
-     * @param version the feature map version to use
-     * @throws Exception unable to set the version
-     */
-    public ProcessingParams(BitSet initialBits, String version) throws Exception {
-        setVersion(version);
-        bitSet = (initialBits == null) ? new BitSet() : initialBits;
     }
 
     /**
@@ -181,18 +168,6 @@ public class ProcessingParams {
     }
 
     /**
-     * Returns the Feature by searching for a group and value or null if it is not set.
-     *
-     * @param group the feature group
-     * @param value the string value of the feature
-     * @return the feature if present
-     * @throws Exception the feature is not present
-     */
-    public Feature hasFeature(FeatureGroups group, String value) throws Exception {
-        return hasFeature(featureMap.findFeature(group, value));
-    }
-
-    /**
      * Returns the feature given.
      *
      * @param feature the feature to find
@@ -219,21 +194,6 @@ public class ProcessingParams {
         }
 
         return (bitSet != null && bitSet.get(feature.getId())) ? feature : null;
-    }
-
-    /**
-     * Returns true if there is any ortho processing in this set of params
-     * regardless of ortho type or elevation model.
-     *
-     * @return
-     */
-    public boolean hasAnyOrtho() {
-        for (Feature f: getFeatures()) {
-            if(f.getGroup() == FeatureGroups.ORTHO) {
-                return true;
-            }
-        }
-        return false;
     }
 
     /**
@@ -292,11 +252,6 @@ public class ProcessingParams {
         return this;
     }
 
-    public ProcessingParams setFeature(FeatureGroups group, String value)
-            throws Exception {
-        return setFeature(featureMap.findFeature(group, value));
-    }
-
     public ProcessingParams setFeature(int id) throws Exception {
         return setFeature(featureMap.getFeature(id));
     }
@@ -344,70 +299,6 @@ public class ProcessingParams {
         }
 
         return gsd != null || sharpen != null || brightness != null;
-    }
-
-    /**
-     * Checks to see if too sets of processing parameters are similar. Does not check to if the image
-     * came from the same source.
-     *
-     * @param compareParams the processing parameters to compare
-     * @return true if the processing parameters are similar, false if not
-     */
-    public boolean isSimilar(ProcessingParams compareParams) {
-        // clone and remove the source from the set bits as we do not care if the image
-        // came from a different source
-
-        // early out for invalid params
-        if (bitSet == null || compareParams.getBitSet() == null) {
-            return false;
-        }
-
-        BitSet thisBitSet = removeGroup(FeatureGroups.SOURCE, (BitSet) bitSet.clone());
-        BitSet compareBitSet =
-                removeGroup(FeatureGroups.SOURCE, (BitSet) compareParams.getBitSet().clone());
-
-        return thisBitSet != null && thisBitSet.equals(compareBitSet) && hasSameGsd(compareParams)
-                && hasSameSharpen(compareParams) && hasSameBrightness(compareParams);
-    }
-
-    /**
-     * Checks to see if the processing parameters have the same brightness values.
-     *
-     * @param compareParams the processing parameters to compare to
-     * @return true if they have the same brightness, false if not
-     */
-    public boolean hasSameBrightness(ProcessingParams compareParams) {
-        BrightnessFeature compareBrightness = compareParams.getBrightness();
-        double compareBrightnessValue =
-                (compareBrightness != null) ? compareBrightness.getBrightnessValue() : -1.0;
-        double thisBrightnessValue = (brightness != null) ? brightness.getBrightnessValue() : -1.0;
-        return compareBrightnessValue == thisBrightnessValue;
-    }
-
-    /**
-     * Checks to see if the processing parameters contain the same GSD values.
-     *
-     * @param compareParams the processing parameters to compare
-     * @return true if the GSD values are the same, false if not
-     */
-    public boolean hasSameGsd(ProcessingParams compareParams) {
-        GsdFeature compareGsd = compareParams.getGsd();
-        int compareGsdValue = (compareGsd != null) ? compareGsd.getGsdValueInCm() : -1;
-        int thisGsdValue = (this.gsd != null) ? (this.gsd).getGsdValueInCm() : -1;
-        return compareGsdValue == thisGsdValue;
-    }
-
-    /**
-     * True if the passed in ProcessingParams has the same Sharpen value.
-     *
-     * @param compareParams the processing parameters to compare
-     * @return true if the same sharpen value is present
-     */
-    public boolean hasSameSharpen(ProcessingParams compareParams) {
-        SharpenFeature compareSharpen = compareParams.getSharpen();
-        int compareSharpenValue = compareSharpen != null ? compareSharpen.getPercentage() : -1;
-        int thisSharpenValue = sharpen != null ? sharpen.getPercentage() : -1;
-        return compareSharpenValue == thisSharpenValue;
     }
 
     @Override
@@ -512,23 +403,6 @@ public class ProcessingParams {
     }
 
     /**
-     * Checks to see if the instance has all the features from the passed in params argument.
-     *
-     * @param params the values to compare against
-     * @return true if all the features are present
-     */
-    public boolean hasParams(ProcessingParams params) {
-        // if either params have invalid bitSets we cannot compare and assume they are not equal
-        if (bitSet == null || params.getBitSet() == null) {
-            return false;
-        }
-
-        BitSet testBitSet = (BitSet) bitSet.clone();
-        testBitSet.and(params.getBitSet());
-        return testBitSet.equals(params.getBitSet());
-    }
-
-    /**
      * Removes a feature based on ID value.
      *
      * @param id the ID of the feature to remove
@@ -569,92 +443,12 @@ public class ProcessingParams {
         }
     }
 
-    /**
-     * Prints out the processing params as a formatted string.
-     *
-     * @return the features as a string
-     */
-    public String toPrettyString() {
-        List<Feature> features = getFeatures();
-        if (features.isEmpty()) {
-            return "None";
-        }
-        return features.stream().map(Feature::getFeature).collect(Collectors.joining(", "));
-    }
-
     public GsdFeature getGsd() {
         return gsd;
     }
 
     public void setGsd(GsdFeature gsd) {
         this.gsd = gsd;
-    }
-
-    /**
-     * Removes the feature group from the processing parameters.
-     *
-     * @param group the feature group to remove
-     * @return the feature that was removed
-     */
-    public Feature popGroup(FeatureGroups group) {
-        Feature feature = getGroup(group);
-        if (feature == null) {
-            return null;
-        }
-        removeFeature(feature);
-        return feature;
-    }
-
-    /**
-     * Returns a list of all the set features.
-     *
-     * @return a list of feature IDs
-     */
-    public int[] getFeatureIds() {
-        int[] ids = new int[0];
-
-        if (bitSet != null) {
-            ids = bitSet.stream().toArray();
-        }
-
-        if (brightness != null) {
-            ids = ArrayUtils.add(ids, brightness.getId());
-        }
-
-        if (sharpen != null) {
-            ids = ArrayUtils.add(ids, sharpen.getId());
-        }
-
-        if (gsd != null) {
-            ids = ArrayUtils.add(ids, gsd.getId());
-        }
-
-        return ids;
-    }
-
-    /**
-     * Removes all the features of the feature group from the processing params.
-     *
-     * @param group the feature group to remove
-     * @return a list of features that were removed
-     */
-    public List<Feature> popGroupFeatures(FeatureGroups group) {
-        List<Feature> features = getGroupFeatures(group);
-        features.forEach(this::removeFeature);
-        return features;
-    }
-
-    /**
-     * Counts the number of set features.
-     *
-     * @return the number of set features
-     */
-    public int getFeatureCount() {
-        int count = gsd != null ? 1 : 0;
-        count += sharpen != null ? 1 : 0;
-        count += brightness != null ? 1 : 0;
-
-        return bitSet == null ? count : count + bitSet.cardinality();
     }
 
     /**

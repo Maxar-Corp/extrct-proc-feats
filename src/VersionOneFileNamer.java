@@ -233,7 +233,6 @@ public class VersionOneFileNamer implements FileNamer {
         return withExt ? newFilename : ParseFilename.stripExt(newFilename);
     }
 
-    @Override
     public String getDescriptiveName(ImageFileRef imageFileRef) {
         List<String> parts = new ArrayList<>();
         parts.add(imageFileRef.calcCatId());

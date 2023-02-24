@@ -28,10 +28,6 @@ public interface FeatureMap {
      */
     public Feature findFeature(String featureName) throws Exception;
 
-    public Feature findFeature(FeatureGroups group, String value) throws Exception;
-
-    public Feature findFeature(FeatureGroups group, String value, boolean caseInsensitive)
-            throws Exception;
 
     /**
      * returns a list of features associated with a group
@@ -55,10 +51,7 @@ public interface FeatureMap {
 
     public String printFeatureList();
 
-    public String printGroupFeatureList(FeatureGroups group);
-
     public Map<FeatureGroups, List<Feature>> getMapping();
 
     public void add(String[] csvLine, List<String> keys) throws IllegalAccessError;
-
 }

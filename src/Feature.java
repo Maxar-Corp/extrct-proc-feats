@@ -139,21 +139,4 @@ public class Feature {
             NoSuchFieldException, SecurityException {
         return (String) getClass().getDeclaredField(fieldName).get(this);
     }
-
-    public String getOssimNonOrthoCmd() {
-        return ossimNonOrthoCmd;
-    }
-
-    public String getOssimOrthoCmd() {
-        return ossimOrthoCmd;
-    }
-
-    public boolean isCanOrder() {
-        return canOrder;
-    }
-
-    public boolean isCanGenerate() {
-        return canGenerate;
-    }
-
 }

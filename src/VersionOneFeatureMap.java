@@ -139,45 +139,6 @@ public class VersionOneFeatureMap implements FeatureMap {
         throw new Exception(featureName);
     }
 
-    @Override
-    public Feature findFeature(FeatureGroups group, String value) throws Exception {
-        return findFeature(group, value, false);
-    }
-
-    @Override
-    public Feature findFeature(FeatureGroups group, String value, boolean caseInsensitive)
-            throws Exception {
-        if (caseInsensitive) {
-            value = value.toLowerCase(Locale.ENGLISH);
-        }
-
-        if (FeatureGroups.GSD == group) {
-            return findGsdFeature(value);
-        }
-
-        for (Feature feature : mapping.get(group)) {
-            if (feature.getValue().equals(value)) {
-                return feature;
-            }
-        }
-
-        if (FeatureGroups.ADJUSTMENTS == group) {
-            // Check to see if it matches the sharpen feature.
-            Feature feature = findSharpenFeature(value);
-            if (feature != null) {
-                return feature;
-            }
-
-            // Check to see if it matches the brightness feature.
-            feature = findBrightnessFeature(value);
-            if (feature != null) {
-                return feature;
-            }
-        }
-
-        throw new Exception(String.format("Group: %s | Value: %s", group, value));
-    }
-
     /**
      * Returns a list of features associated with a group.
      *
@@ -219,22 +180,6 @@ public class VersionOneFeatureMap implements FeatureMap {
         featureList.add(gsdPlaceHolder.toString());
         featureList.add(sharpnessPlaceHolder.toString());
         featureList.add(brightnessPlaceHolder.toString());
-        return String.join("\n", featureList);
-    }
-
-    @Override
-    public String printGroupFeatureList(FeatureGroups group) {
-        List<String> featureList = new ArrayList<>();
-        if (group == FeatureGroups.GSD) {
-            return gsdPlaceHolder.toString();
-        }
-        for (Feature feature : mapping.get(group)) {
-            featureList.add(String.format(feature.toString()));
-        }
-        if (group == FeatureGroups.ADJUSTMENTS) {
-            featureList.add(String.format(sharpnessPlaceHolder.toString()));
-            featureList.add(String.format(brightnessPlaceHolder.toString()));
-        }
         return String.join("\n", featureList);
     }
 
