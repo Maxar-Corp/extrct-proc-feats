@@ -1,0 +1,52 @@
+id,group,feature,value,type,units,description,ossimNonOrthoCmd,ossimOrthoCmd,canOrder,canGenerate
+0,source,omar_o2,omar_o2,string,,O2 Omar image service from NRO,,,,
+1,source,omar_ld,omar_ld,string,,LD Omar image service from NRO,,,,
+2,source,ess,ess,string,,ESS image service by NGA,,,,
+3,source,ispy,ispy,string,,iSpy image service from NGA,,,,
+4,source,hailstorm,hailstorm,string,,s3 Bucket repository,,,,
+5,source,ods,ods,string,,ODS s3 bucket repository,,,,
+6,operation,cropped,TRUE,boolean,,Set when the image is cropped from an original,,,false,true
+7,histogram,DRA-auto,auto-minmax,string,,auto-minmax,-s,--histogram-op auto-minmax,false,true
+8,histogram,DRA-1,std-stretch-1,string,,std-stretch-1,,--histogram-op std-stretch-1,false,true
+9,histogram,DRA-2,std-stretch-2,string,,std-stretch-2,,--histogram-op std-stretch-2,false,true
+10,histogram,DRA-3,std-stretch-3,string,,std-stretch-3,,--histogram-op std-stretch-3,false,true
+11,radiometry,8 bit,8,int,,8 bit image,-r 8,--output-radiometry U8,false,true
+12,radiometry,11 bit,11,int,,11 bit image,-r 11,--output-radiometry U11,true,true
+13,radiometry,16 bit,16,int,,16 bit image,-r 16,--output-radiometry U16,true,true
+14,ortho,ortho-ossim,TRUE,boolean,,Orthorectified using ossim chipper,,--op ortho,false,true
+15,ortho,ortho-source,TRUE,boolean,,source orthorecitfied the image,,,true,false
+16,elevation_data,DTED 0,2,int,,Orthorectified with DTED 0 elevation data,-P $OSSIM_PREFS_DTED0,-P $OSSIM_PREFS_DTED0,false,true
+17,elevation_data,DTED 1,6,int,,Orthorectified with DTED 0 elevation data,-P $OSSIM_PREFS_DTED1,-P $OSSIM_PREFS_DTED1,false,true
+18,elevation_data,DTED 2,10,int,,Orthorectified with DTED 0 elevation data,-P $OSSIM_PREFS_DTED2,-P $OSSIM_PREFS_DTED2,false,true
+19,resolution,pan sharpen,TRUE,boolean,,If a pan sharpening tool was used,,,true,false
+20,source,geoserver,geoserver,string,,Non-specific Image provider hosted on a Geoserver instance,,
+21,adjustments,ossim-sharpen light,light,string,,Ossim sharpening tool applied lightly,--sharpen-mode light,--sharpen-mode light,false,true
+22,adjustments,ossim-brightness 0,0,int,,ossim brightness manipulation set to 0,--brightness 0,--brightness 0,false,true
+23,operation,thumbnail,TRUE,boolean,,True if the image is a thumbnail,,,false,true
+24,elevation_data,SRTM 1,4,int,,Orthorectified with SRTM 1 elevation data,-P $OSSIM_PREFS_SRTM1,-P $OSSIM_PREFS_SRTM1,false,true
+25,elevation_data,SRTM 3,1,int,,Orthorectified with SRTM 3 elevation data,-P $OSSIM_PREFS_SRTM3,-P $OSSIM_PREFS_SRTM3,false,true
+26,elevation_data,GEOID99,0,int,,Orthorectified with GEOID99 ellipsoid data,-P $OSSIM_PREFS_GEOID,-P $OSSIM_PREFS_GEOID,false,true
+27,software,NTM Plugin,TRUE,boolean,,Is the Ossim-NTM plugin used,,,false,true
+28,thumbnail,overlay-outline,outline,Enum,,An overlay outline is embedded in the image,,,false,true
+29,thumbnail,overlay-fill,fill,Enum,,A filled/shaded overlay is embedded in the image,,,false,true
+30,source,aps-maxar,aps-maxar,string,,Maxar's Advanced Products Solutions(APS) image ordering service,,,,
+31,elevation_data,DEM-UNK,-1,int,,Unknown elevation data,,,false,false
+32,adjustments,ACOMP,ACOMP,string,,Atmospheric Compensation techniques applied,,,true,false
+33,adjustments,HD,HD,string,,High definition techniques applied,,,true,false
+34,source,gegd-maxar,gegd-maxar,string,,Maxar's GEGD image service,,,,
+35,format,tiled,tiled,string,,Image is composed of smaller image tiles,,,,
+36,format,assembled,assembled,string,,Image was assembled from smaller image tiles,,--combiner-type ossimImageMosaic,true,true
+37,bands,pan,pan,string,,Image is processed as a panchromatic image,,,true,true
+38,bands,rgb,rgb,string,,Image is processed as a RGB/Multi-spectral image,,,true,false
+39,source,g-egd,g-egd,string,,G-EGD image service - name change from EVWHS,,,,
+40,elevation_data,maxar-srtm 1,8,int,,Orthorectified with Maxar void filled SRTM-1 elevation data,-P $OSSIM_PREFS_MAXAR_SRTM_1,-P $OSSIM_PREFS_MAXAR_SRTM_1,true,false
+41,source,local-adhoc,local-adhoc,string,,Local image service,,,,
+42,ortho,ortho,ortho,string,,general ortho request independent of ortho method,,,true,true
+43,source,rda-maxar,rda-maxar,string,,Maxar's RDA image service,,,,
+44,adjustments,ossim-sharpen medium,medium,string,,Ossim sharpening tool applied medium,--sharpen-mode medium,--sharpen-mode medium,false,true
+45,adjustments,ossim-sharpen heavy,heavy,string,,Ossim sharpening tool applied heavily,--sharpen-mode heavy,--sharpen-mode heavy,false,true
+46,source,tdc-gbdx,tdc-gbdx,string,,TDC-GBDX image service is a quasi service to enable legacy MAXAR SMO training datasets to work with the DeepCore suite ,,,,
+47,bands,ms,ms,string,,Image is processed as a multi-spectrum image,,,true,false
+48,histogram,DRA-gbdx-histo,std-stretch-3,string,,,,,true,false
+49,elevation_data,SRTM V2,12,int,,Orthorectified with SRTM version 2 elevation data,-P $OSSIM_PREFS_SRTMV2,-P $OSSIM_PREFS_SRTMV2,false,true
+50,source,g-egd-ogc,g-egd-ogc,string,,G-EGD OGC based image service - uses EVWHS,,,,
