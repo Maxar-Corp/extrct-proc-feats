@@ -134,9 +134,4 @@ public class Feature {
     public String getDescription() {
         return description;
     }
-
-    public String getField(String fieldName) throws IllegalArgumentException, IllegalAccessException,
-            NoSuchFieldException, SecurityException {
-        return (String) getClass().getDeclaredField(fieldName).get(this);
-    }
 }

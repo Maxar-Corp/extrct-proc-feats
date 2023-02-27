@@ -7,16 +7,15 @@
     <list default="true" id="beb9750c-da17-4abf-9662-b041b3dfdba5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinaryConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinaryConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BrightnessFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BrightnessFeature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CsvMappingReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CsvMappingReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Feature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Feature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FeatureMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FeatureMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImageFileRef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageFileRef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParseFilename.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParseFilename.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileNamer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileNamer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GsdFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GsdFeature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProcessingParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProcessingParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StaticSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StaticSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestRef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SharpenFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SharpenFeature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/VersionOneFeatureMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VersionOneFeatureMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VersionOneFileNamer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VersionOneFileNamer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,17 +45,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/davidholland/mirage/ExtractProcessingFeaturesFromFilename/bin/joda-time-2.8.1.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/davidholland/mirage/ExtractProcessingFeaturesFromFilename/bin/joda-time-2.8.1.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -99,14 +98,8 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ImageFileRef.java</url>
-          <line>146</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CsvMappingReader.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/VersionOneFeatureMap.java</url>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

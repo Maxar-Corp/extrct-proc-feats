@@ -60,10 +60,12 @@ public class BinaryConverter {
     }
 
     public static String toBase36(Long base10long) {
+
         return Long.toString(base10long, 36);
     }
 
     public static String toBase36(String binaryString) {
+
         return new BigInteger(binaryString, 2).toString(36);
     }
 
@@ -84,7 +86,8 @@ public class BinaryConverter {
         if (base36String == null || base36String.isEmpty()) {
             return new BitSet();
         }
-        return toBitSet(new BigInteger(base36String, 36));
+        BigInteger big = new BigInteger(base36String, 36);
+        return toBitSet(big);
     }
 
     /**

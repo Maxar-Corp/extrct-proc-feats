@@ -5,18 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
-/**
- * Reads the list of Features available for mapping from a csv file. The default csv file is found
- * in the resources folder or a specified csv file may be passed in at construction.
- *
- * @author mstabile
- *
- */
 public class CsvMappingReader {
-
-    //private static final Logger log = LoggerFactory.getLogger(CsvMappingReader.class);
-
     File csvFile = null;
     InputStream csvStream = null;
     static boolean featureMapSet = false;
@@ -106,9 +95,7 @@ public class CsvMappingReader {
 
     private InputStream getInputStreamFromResources(String fileName) throws IllegalArgumentException, FileNotFoundException {
 
-        //InputStream resource = getClass().getClassLoader().getResourceAsStream("/home/davidholland/mirage/ExtractProcessingFeaturesFromFilename/" + fileName);
-
-        File initialFile = new File("src/main/resources/" + fileName);
+     File initialFile = new File("src/main/resources/" + fileName);
         InputStream resource = new FileInputStream(initialFile);
 
         if (resource == null) {

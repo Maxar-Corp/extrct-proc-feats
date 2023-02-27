@@ -61,13 +61,6 @@ public class VersionOneFeatureMap implements FeatureMap {
         mapping.get(FeatureGroups.ADJUSTMENTS).add(brightnessPlaceHolder);
     }
 
-    /**
-     * Adds a feature to the feature map.
-     *
-     * @param csvLine the line from the csv file
-     * @param keys the keys for the csv line entries
-     * @throws IllegalAccessError the feature map is locked
-     */
     @Override
     public void add(String[] csvLine, List<String> keys) throws IllegalAccessError {
         if (locked) {
@@ -82,13 +75,6 @@ public class VersionOneFeatureMap implements FeatureMap {
         features.add(id, feature);
     }
 
-    /**
-     * Returns the Feature based upon its id.
-     *
-     * @param id the ID of the feature
-     * @return the feature with the given ID
-     * @throws Exception the feature ID does not exist
-     */
     @Override
     public Feature getFeature(int id) throws Exception {
         if (id <= GsdFeature.ID_BASE && id > SharpenFeature.ID_BASE) {
@@ -106,13 +92,6 @@ public class VersionOneFeatureMap implements FeatureMap {
         return features.get(id);
     }
 
-    /**
-     * Returns the Feature by searching for is feature name.
-     *
-     * @param featureName the name of the feature
-     * @return the feature
-     * @throws Exception the feature does not exist
-     */
     @Override
     public Feature findFeature(String featureName) throws Exception {
 
@@ -139,12 +118,6 @@ public class VersionOneFeatureMap implements FeatureMap {
         throw new Exception(featureName);
     }
 
-    /**
-     * Returns a list of features associated with a group.
-     *
-     * @param group the feature group
-     * @return a list of features for the group
-     */
     @Override
     public List<Feature> getGroupFeatures(FeatureGroups group) {
         if (FeatureGroups.GSD == group) {
@@ -153,19 +126,11 @@ public class VersionOneFeatureMap implements FeatureMap {
         return mapping.get(group);
     }
 
-    /**
-     * Locks the class from any changes.
-     */
     @Override
     public void lock() {
         locked = true;
     }
 
-    /**
-     * Count of the number of features.
-     *
-     * @return the number of features
-     */
     @Override
     public int length() {
         return features.size();
@@ -203,13 +168,6 @@ public class VersionOneFeatureMap implements FeatureMap {
         return gsdFeature;
     }
 
-    /**
-     * Looks up the single instance of a Sharpness feature.
-     *
-     * @param featureName the name of the feature
-     * @return the sharpen feature
-     * @throws Exception unable to get the sharpen feature
-     */
     private static Feature findSharpenFeature(String featureName) throws Exception {
         if (!StringUtils.startsWith(featureName, SharpenFeature.SHARPEN_KEY)) {
             return null;
@@ -225,13 +183,6 @@ public class VersionOneFeatureMap implements FeatureMap {
         return sharpnessFeature;
     }
 
-    /**
-     * Looks up the single instance of a Brightness feature.
-     *
-     * @param featureName the name of the feature
-     * @return the brightness feature
-     * @throws Exception unable to find the brightness feature
-     */
     private static Feature findBrightnessFeature(String featureName) throws Exception {
         if (!StringUtils.startsWith(featureName, BrightnessFeature.BRIGHTNESS_KEY)) {
             return null;

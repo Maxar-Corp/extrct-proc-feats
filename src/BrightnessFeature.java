@@ -33,9 +33,6 @@
 
 import java.util.Locale;
 
-/**
- * This feature allows for variability in the brightness processing options.
- */
 public class BrightnessFeature extends Feature {
     public static final String BRIGHTNESS_KEY = "ossim-brightness";
     public static final String FILENAME_KEY = "ob";
@@ -57,9 +54,6 @@ public class BrightnessFeature extends Feature {
     protected final String ossimNonOrthoCmd;
     protected final String ossimOrthoCmd;
 
-    /**
-     * Creates a new instance of {@link BrightnessFeature}.
-     */
     public BrightnessFeature() {
         super();
 
@@ -80,13 +74,6 @@ public class BrightnessFeature extends Feature {
         super.canOrder = false;
     }
 
-    /**
-     * Creates a new instance of {@link BrightnessFeature}.
-     *
-     * @param featureName the name of the feature
-     *
-     * @throws Exception invalid brightness value
-     */
     public BrightnessFeature(String featureName) throws Exception {
         super(featureName);
 
@@ -119,13 +106,6 @@ public class BrightnessFeature extends Feature {
         super.canOrder = false;
     }
 
-    /**
-     * Takes the feature name and returns the double value of the brightness adjustment.
-     *
-     * @param featureName the feature name
-     * @return the double value
-     * @throws Exception invalid brightness adjustment
-     */
     public static double valueFromFeatureName(String featureName) throws Exception {
         if (featureName == null) {
             return 0.0;
@@ -145,36 +125,14 @@ public class BrightnessFeature extends Feature {
                 String.format("Invalid ossim brightness feature name:  %s", featureName));
     }
 
-    /**
-     * Creates a consistent name for the feature.
-     *
-     * @param value the brightness value
-     * @return the feature name
-     */
     public static String createFeatureName(double value) {
         return String.format(COMMAND_FORMAT, BRIGHTNESS_KEY, value);
     }
 
-    /**
-     * Gets the brightness value.
-     */
-    public double getBrightnessValue() {
-        return brightnessValue;
-    }
-
-    /**
-     * Gets the value to be displayed in the file name.
-     */
     public String getFilenameValue() {
         return String.format("%s%s", FILENAME_KEY, brightnessPercent);
     }
 
-    /**
-     * Returns the feature name for the supplied ID.
-     *
-     * @param id the ID of the feature
-     * @return the feature name
-     */
     public static String createFeatureNameFromId(int id) {
         return String.format(COMMAND_FORMAT, BRIGHTNESS_KEY, (id - ID_BASE + 100.0) / -100.0);
     }

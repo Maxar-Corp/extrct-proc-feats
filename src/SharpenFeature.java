@@ -65,13 +65,6 @@ public class SharpenFeature extends Feature {
         super.canOrder = false;
     }
 
-    /**
-     * Takes the Feature name returns the integer value of the sharpen percentage
-     *
-     * @param  featureName
-     * @return
-     * @throws Exception
-     */
     public static int valueFromFeatureName(String featureName) throws Exception {
         if (featureName == null) {
             return -1;
@@ -87,12 +80,6 @@ public class SharpenFeature extends Feature {
         throw new Exception("Invalid ossim-sharpen feature name: " + featureName);
     }
 
-    /**
-     * create a consistent name for the feature
-     *
-     * @param  value
-     * @return
-     */
     public static String createFeatureName(int value) {
         return String.format("%s %s", SHARPEN_KEY, value);
 
@@ -102,23 +89,11 @@ public class SharpenFeature extends Feature {
         return percentage;
     }
 
-    /**
-     * Returns the value to be displayed in the filename
-     *
-     * @return
-     */
     public String getFilenameValue() {
         return String.format("%s%s", FILENAME_KEY, value);
     }
 
-    /**
-     * return the feature name for the supplied id
-     *
-     * @param  id
-     * @return
-     */
     public static String createFeatureNameFromId(int id) {
         return String.format("%s %s", SHARPEN_KEY, -1 * (id - ID_BASE));
     }
-
 }

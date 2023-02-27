@@ -54,13 +54,6 @@ public class GsdFeature extends Feature {
         super.canOrder = true;
     }
 
-    /**
-     * Takes the Feature name returns the double value of the gsd value
-     *
-     * @param  featureName
-     * @return
-     * @throws Exception
-     */
     public static double valueFromFeatureName(String featureName) throws Exception {
         if (featureName == null) {
             return Double.NaN;
@@ -76,38 +69,16 @@ public class GsdFeature extends Feature {
         throw new Exception("Invalid gsd feature name: " + featureName);
     }
 
-    /**
-     * create a consistent name for the feature
-     *
-     * @param  value
-     * @return
-     */
     public static String createFeatureName(double value) {
         return String.format("%s %s", GSD_KEY, (int) (value * 100));
 
     }
 
-    public int getGsdValueInCm() {
-        return gsdValueInCm;
-    }
-
-    /**
-     * Returns the value to be displayed in the filename
-     *
-     * @return
-     */
     public String getFilenameValue() {
         return String.format("%s%s", FILENAME_KEY, gsdValueInCm);
     }
 
-    /**
-     * return the feature name for the supplied id
-     *
-     * @param  id
-     * @return
-     */
     public static String createFeatureNameFromId(int id) {
         return String.format("%s %s", GSD_KEY, -1 * (id - ID_BASE));
     }
-
 }

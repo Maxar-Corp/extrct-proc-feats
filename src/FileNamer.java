@@ -73,12 +73,4 @@ public interface FileNamer {
      * @return
      */
     public String formatCatId(String catId);
-
-    /**
-     * Generates a human readable version of the file reference
-     *
-     * @param imageFileRef
-     * @return
-     */
-    public String getDescriptiveName(ImageFileRef imageFileRef);
 }
